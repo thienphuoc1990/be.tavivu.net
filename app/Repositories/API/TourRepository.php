@@ -77,11 +77,14 @@ class TourRepository extends BaseRepository
 
     public function getListTourDetails($id)
     {
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
         $tour_details = TourDetail::select([
             'start_date', 'flight_out', 'flight_in', 'price',
             'kid_price', 'baby_price', 'single_room_price'
         ])
-        ->where('tour_id', $id)->get();
+        ->where('tour_id', $id)
+        ->where('start_date', '>=', date("Y-m-d"))
+        ->get();
         foreach ($tour_details as $item) {
             $item->price = $this->parsePrice($item->price);
             $item->kid_price = $this->parsePrice($item->kid_price);

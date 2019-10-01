@@ -130,7 +130,11 @@ class PageRepository extends BaseRepository
                     $tours->where('type', $type);
                 }
 
-                $tours = $tours->orderBy('index', 'asc')->groupBy('tours.id')->limit(12)->get();
+                $tours = $tours->where('active', ACTIVE)
+                    ->orderBy('index', 'asc')
+                    ->groupBy('tours.id')
+                    ->limit(12)
+                    ->get();
 
                 foreach ($tours as $item) {
                     $item->generateData();
@@ -200,7 +204,11 @@ class PageRepository extends BaseRepository
 
     public function getIncomingTours()
     {
-        $tours = Tour::where('is_coming', ACTIVE)->orderBy('index', 'asc')->limit(6)->get();
+        $tours = Tour::where('is_coming', ACTIVE)
+            ->where('active', ACTIVE)
+            ->orderBy('index', 'asc')
+            ->limit(6)
+            ->get();
         foreach ($tours as $item) {
             $item->generateData();
         }
