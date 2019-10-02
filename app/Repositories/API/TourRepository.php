@@ -83,13 +83,14 @@ class TourRepository extends BaseRepository
             'kid_price', 'baby_price', 'single_room_price'
         ])
         ->where('tour_id', $id)
-        ->where('start_date', '>=', date("d-m-Y"))
+        ->whereRaw("STR_TO_DATE(`start_date`,'%d-%m-%Y') >= CURDATE()")
         ->get();
         foreach ($tour_details as $item) {
             $item->price = $this->parsePrice($item->price);
             $item->kid_price = $this->parsePrice($item->kid_price);
             $item->baby_price = $this->parsePrice($item->baby_price);
             $item->single_room_price = $this->parsePrice($item->single_room_price);
+            $item->current_date = date("d-m-Y");
         }
 
         return $tour_details;
