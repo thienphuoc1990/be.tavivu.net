@@ -90,7 +90,6 @@ class TourRepository extends BaseRepository
             $item->kid_price = $this->parsePrice($item->kid_price);
             $item->baby_price = $this->parsePrice($item->baby_price);
             $item->single_room_price = $this->parsePrice($item->single_room_price);
-            $item->current_date = date("d-m-Y");
         }
 
         return $tour_details;
