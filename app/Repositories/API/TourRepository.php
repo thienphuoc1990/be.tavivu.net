@@ -313,7 +313,7 @@ class TourRepository extends BaseRepository
         }
         $now = Carbon::now()->format('m/d/Y');
         $tour->details = TourDetail::where('tour_id', $id)
-        ->where('start_date', '>=', $now)
+        ->whereRaw("STR_TO_DATE(`start_date`,'%d-%m-%Y') >= CURDATE()")
         ->get();
         $tour->tour_detail_options = $this->generateTourDetailOptions($id);
 
