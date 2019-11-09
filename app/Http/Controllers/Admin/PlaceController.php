@@ -48,7 +48,7 @@ class PlaceController extends BaseController
     public function create(PlaceRepository $place)
     {
         $this->data['title'] = 'Add new place';
-        $this->data['is_hot_options'] = $place->makeIsActiveOptions();
+        $this->data['is_hot_options'] = $place->makeIsHotOptions();
         $this->data['type_options'] = $place->makeTourTypeOptions();
         return view('admin.places.detail', $this->data);
     }
@@ -97,7 +97,7 @@ class PlaceController extends BaseController
     {
         $this->data['data'] = $place->getPlace($id);
         $this->data['title'] = 'Edit place';
-        $this->data['is_hot_options'] = $place->makeIsActiveOptions($this->data['data']->is_hot);
+        $this->data['is_hot_options'] = $place->makeIsHotOptions($this->data['data']->is_hot);
         $this->data['type_options'] = $place->makeTourTypeOptions($this->data['data']->type);
         return view('admin.places.detail', $this->data);
     }

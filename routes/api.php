@@ -34,5 +34,8 @@ Route::namespace('API')->middleware('cors')->group(function() {
 
     Route::get('tour-order/send', 'TourController@sendTourOrder');
     Route::get('pages/{page}', 'PageController@page');
+
+    Route::get('news', 'NewsController@index');
+    Route::get('news/{id}', 'NewsController@view');
 });
 

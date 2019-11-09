@@ -119,5 +119,13 @@ Route::prefix('admin')->namespace('Admin')->group(function() {
         Route::post('/upload', 'ImageController@upload')->name('admin.images.upload');
     });
 
+    Route::prefix('news')->group(function () {
+        Route::get('/', 'NewsController@index')->name('admin.news.index');
+        Route::get('/create', 'NewsController@create')->name('admin.news.create');
+        Route::get('/{page}/edit', 'NewsController@edit')->name('admin.news.edit');
+        Route::post('/store', 'NewsController@store')->name('admin.news.store');
+        Route::delete('/destroy', 'NewsController@destroy')->name('admin.news.destroy');
+    });
+
 
 });

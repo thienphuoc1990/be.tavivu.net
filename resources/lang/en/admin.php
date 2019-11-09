@@ -288,6 +288,22 @@ return [
             'origin' => [
                 'label' => 'Chọn hình ảnh'
             ]
+        ],
+        'news' => [
+            'title' => [
+                'invalid' => 'Please input news title',
+                'place_holder' => 'Ex: Nha Trang',
+                'label' => 'News title'
+            ],
+            'content' => [
+                'invalid' => 'Please input news content',
+                'place_holder' => 'Ex: ...',
+                'label' => 'News content'
+            ],
+            'image' => [
+                'place_holder' => 'Click here to choose image',
+                'label' => 'News image'
+            ]
         ]
     ],
     'label' => [
@@ -327,6 +343,11 @@ return [
             'images' => 'Images',
             'images_list' => 'Images list',
             'create_image' => 'Add new image'
+        ],
+        'news' => [
+            'news' => 'News',
+            'news_list' => 'News List',
+            'create_news' => 'Add new news'
         ]
     ]
 

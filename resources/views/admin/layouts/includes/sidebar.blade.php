@@ -62,6 +62,22 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews" aria-expanded="true"
+            aria-controls="collapseNews">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>{{ __('admin.label.news.news') }}</span>
+        </a>
+        <div id="collapseNews" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item"
+                    href="{{route('admin.news.index')}}">{{ __('admin.label.news.news_list') }}</a>
+                <a class="collapse-item"
+                    href="{{route('admin.news.create')}}">{{ __('admin.label.news.create_news') }}</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePlaces" aria-expanded="true"
             aria-controls="collapsePlaces">
             <i class="fas fa-fw fa-cog"></i>
