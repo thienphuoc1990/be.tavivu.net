@@ -7,6 +7,7 @@ use App\Models\News;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Storage;
 use App\Libraries\Photo;
 use Response;
 

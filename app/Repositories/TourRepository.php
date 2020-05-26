@@ -291,7 +291,8 @@ class TourRepository extends BaseRepository
         }
 
         $model->tour_id = $data['tour_id'];
-        $model->start_date = $data['start_date'];
+        $model->start_date = \DateTime::createFromFormat('m/d/Y', $data['start_date'])->format('d-m-Y');
+        // $model->start_date = date('d-m-Y', strtotime(str_replace('/', '-', $data['start_date'])));
         $model->flight_in = $data['flight_in'];
         $model->flight_out = $data['flight_out'];
         $model->price = $data['price'];
